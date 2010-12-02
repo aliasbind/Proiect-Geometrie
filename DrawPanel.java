@@ -21,8 +21,8 @@ public class DrawPanel extends JPanel
         //Odata ce utilizatorul clickeaza pe fereastra, vom adauga puncte in arraylist,
         //apoi vom gasi vreun mod sa desenam curba bezier.
 
-        //Dupa ce omul nostru termina de clickat polinomul de control, va apasa o combinatie
-        //(ma gandesc eu: CTRL+RCLICK) si va clicka polinoml de control al celei de-a doua
+        //Dupa ce omul nostru termina de clickat poligonul de control, va apasa o combinatie
+        //(ma gandesc eu: CTRL+RCLICK) si va clicka poligonul de control al celei de-a doua
         //curbe bezier (apoi vom vedea cum le-om compara noi).
         this.addMouseListener(new MouseListener()
         {

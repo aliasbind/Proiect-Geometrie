@@ -1,5 +1,8 @@
 import javax.swing.JFrame;
 
+//Nu se face mare branza aici. Se initializeaza fereastra dupa care se adauga in continut
+//un DrawPanel (care mosteneste JPanel).
+
 public class Main
 { 
     public static void main(String[] args)
