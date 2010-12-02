@@ -7,7 +7,7 @@ $(PROG): $(OBJ)
 	java $(PROG)
 
 %.class : %.java
-	javac %.java
+	javac $^
 
 clean:
 	rm $(OBJ)
