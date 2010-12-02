@@ -1,3 +1,9 @@
+//Nu cred ca vom mai avea nevoie de vreo functie din clasa asta.
+//Ele fac ce trebuie, dar Java are deja implementata functia
+//de desenare a unei curbe Bezier. Le mai tin aici pe post de
+//amintire pentru efortul nostru de a face functia de desenare incepand
+//de la zero.
+
 public class Curve
 {
     static int n; //nr puncte

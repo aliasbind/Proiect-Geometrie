@@ -1,5 +1,5 @@
 PROG=Main
-OBJ=Main.class
+OBJ=Main.class DrawPanel.class Curve.class Point.class
 
 all: $(PROG)
 
