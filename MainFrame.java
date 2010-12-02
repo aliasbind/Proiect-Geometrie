@@ -13,8 +13,4 @@ public class MainFrame extends JFrame
         this.setSize(350, 350);
         this.setVisible(true);
     }
-
-    //public void paint (Graphics g)
-    //{
-    //}
 }
