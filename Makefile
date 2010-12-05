@@ -1,5 +1,5 @@
 PROG=Main
-OBJ=Main.class DrawPanel.class Curve.class Point.class Bezier.class
+OBJ=Main.class DrawPanel.class Bezier.class StatusBar.class ManualInputArea.class
 
 all: $(PROG)
 

@@ -40,17 +40,17 @@ public class DrawPanel extends JPanel
         {
             public void mouseClicked(MouseEvent e)
             {
-                System.out.println("Clicked!");
+                //System.out.println("Clicked!");
             }
             
             public void mouseExited(MouseEvent e)
             {
-                System.out.println("Exited Panel!");
+                //System.out.println("Exited Panel!");
             }
 
             public void mouseEntered(MouseEvent e)
             {
-                System.out.println("Entered Panel!");
+                //System.out.println("Entered Panel!");
             }
 
             public void mousePressed(MouseEvent e)
@@ -70,7 +70,7 @@ public class DrawPanel extends JPanel
                             else
                                 JOptionPane.showMessageDialog(getParent(), "NU");
 
-                            repaint(0, 0, 0, getSize().height, getSize().width);
+                            repaint(0, 0, 0, getSize().width, getSize().height);
                             clearLists();
                             CurbaCurenta = 1;
                             break;
@@ -78,23 +78,24 @@ public class DrawPanel extends JPanel
                 }
                 else
                 {
-                    Rectangle2D.Float pct = new Rectangle2D.Float(e.getX(), e.getY(), 0, 0);
-                    Graphics2D g2d = (Graphics2D) getGraphics();
-                    g2d.draw(pct);
-                    processCurve(CurbaCurenta-1, pct);
+                    addPoint(e.getX(), e.getY());
+                    //Rectangle2D.Float pct = new Rectangle2D.Float(e.getX(), e.getY(), 0, 0);
+                    //Graphics2D g2d = (Graphics2D) getGraphics();
+                    //g2d.draw(pct);
+                    //processCurve(CurbaCurenta-1, pct);
                     //Deseneaza un dreptunghi, in punctu in care se afla mouse-ul cand
                     //s-a facut click, care are o lungime si latime de 0px, adica va desena 
                     //un punct.
 
                     //Pana acum se deseneaza un punct pentru orice click 
                     //(fie el LEFT sau RIGHT sau chiar MIDDLE).
-                    System.out.println("Pressed!");
+                    //System.out.println("Pressed!");
                 }
             }
             
             public void mouseReleased(MouseEvent e)
             {
-                System.out.println("Released!");
+                //System.out.println("Released!");
             }
         });
 
@@ -124,6 +125,7 @@ public class DrawPanel extends JPanel
             paths[Curve].moveTo(CurrentPoint.x, CurrentPoint.y);
         }
     }
+
     public void clearLists()
     {
         int i;
@@ -134,6 +136,14 @@ public class DrawPanel extends JPanel
             paths[i] = new GeneralPath();
             curbe.add(new ArrayList<Point2D.Float>());
         }
+    }
+
+    public void addPoint(float x, float y)
+    {
+        Graphics2D g2d = (Graphics2D) getGraphics();
+        Rectangle2D.Float pct = new Rectangle2D.Float(x, y, 0, 0);
+        g2d.draw(pct);
+        processCurve(CurbaCurenta-1, pct);
     }
 
     //protected void paintComponent(Graphics g)
