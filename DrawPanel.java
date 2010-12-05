@@ -14,6 +14,7 @@ import java.awt.Color;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
+import java.awt.geom.Ellipse2D;
 
 import java.util.ArrayList;
 
@@ -27,7 +28,6 @@ public class DrawPanel extends JPanel
     DrawPanel()
     {
         clearLists();
-
         CurbaCurenta = 1;
         //Cam pe aici vom avea arraylist-ul de puncte, la inceput fiind gol.
         //Odata ce utilizatorul clickeaza pe fereastra, vom adauga puncte in arraylist,
@@ -40,17 +40,12 @@ public class DrawPanel extends JPanel
         {
             public void mouseClicked(MouseEvent e)
             {
-                //System.out.println("Clicked!");
             }
-            
             public void mouseExited(MouseEvent e)
             {
-                //System.out.println("Exited Panel!");
             }
-
             public void mouseEntered(MouseEvent e)
             {
-                //System.out.println("Entered Panel!");
             }
 
             public void mousePressed(MouseEvent e)
@@ -79,27 +74,14 @@ public class DrawPanel extends JPanel
                 else
                 {
                     addPoint(e.getX(), e.getY());
-                    //Rectangle2D.Float pct = new Rectangle2D.Float(e.getX(), e.getY(), 0, 0);
-                    //Graphics2D g2d = (Graphics2D) getGraphics();
-                    //g2d.draw(pct);
-                    //processCurve(CurbaCurenta-1, pct);
-                    //Deseneaza un dreptunghi, in punctu in care se afla mouse-ul cand
-                    //s-a facut click, care are o lungime si latime de 0px, adica va desena 
-                    //un punct.
-
-                    //Pana acum se deseneaza un punct pentru orice click 
-                    //(fie el LEFT sau RIGHT sau chiar MIDDLE).
-                    //System.out.println("Pressed!");
                 }
             }
             
             public void mouseReleased(MouseEvent e)
             {
-                //System.out.println("Released!");
             }
         });
 
-        //Inca mai e mult de lucru la DrawPanel
     }
 
     public void processCurve(int Curve, Rectangle2D.Float pct)
@@ -143,27 +125,9 @@ public class DrawPanel extends JPanel
         Graphics2D g2d = (Graphics2D) getGraphics();
         Rectangle2D.Float pct = new Rectangle2D.Float(x, y, 0, 0);
         g2d.draw(pct);
+        g2d.setColor(Color.orange);
+        g2d.draw(new Ellipse2D.Float(x-5, y-5, 10, 10));
+        g2d.setColor(Color.black);
         processCurve(CurbaCurenta-1, pct);
     }
-
-    //protected void paintComponent(Graphics g)
-    //{
-        //Functia asta se apeleaza automat de interpretor, oferindu-ti obiectul 'g'
-        //care te va lasa sa desenezi ce vrei tu in Panel.
-        //
-        //Cand vom termina proiectul (doamne-ajuta!), nu vom mai avea nevoie
-        //de functia asta, pentru ca, dupa cum ati observat in metoda mousePressed() de mai sus,
-        //vom lua noi obiectul 'Graphics' folosind metoda getGraphics() si vom desena in
-        //interiorul Event-Handler-ului. Functia asta am scris-o doar sa vad daca aveam
-        //dreptate cu GeneralPath :).
-
-    //Graphics2D g2d;
-    //g2d = (Graphics2D) g;
-
-        //GeneralPath path = new GeneralPath();
-        //path.moveTo(0,0);
-        //path.curveTo(10, 15, 1, 80, 50, 50);
-
-        //g2d.draw(path);
-    //}
 }
